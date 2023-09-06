@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>साइन इन</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="{% static 'login/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'login/css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+    <script src="{% static 'device-uuid.js' %}"></script>
+
+</head>
+
+<body class="d-flex align-items-center justify-content-center">
+
+    <main id="main" class="main">
+        <section class="section">
+            <div class="row">
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <div class="title">
+                            <h2 class="login1"> प्रवेश करें </h2>
+                        </div>
+
+                        <div class="label1">
+                            <h1> अपना फोन नंबर दर्ज करे </h1>
+                        </div>
+
+
+                        <div class="mobile-output">
+                            <input type="number" maxlength="10" id="mobile_number" class="inputnum" readonly>
+                        </div>
+
+                        <div id="message1" class="error1 hidden"> कृपया मान्य फोन नंबर दर्ज करें </div>
+
+                        <button class="sendotp" id="btnsend">
+                            <span> ओटीपी भेजें </span> <i class="sendicon fas fa-paper-plane"></i>
+                        </button>
+
+                        <div class="keyboard virtual-keyboard">
+                            <input class="num" type="button" value="1">
+                            <input class="num" type="button" value="2">
+                            <input class="num" type="button" value="3">
+                            <input class="num" type="button" value="4">
+                            <input class="num" type="button" value="5">
+                            <input class="num" type="button" value="6">
+                            <input class="num" type="button" value="7">
+                            <input class="num" type="button" value="8">
+                            <input class="num" type="button" value="9">
+                            <span class="num-n num"></span>
+                            <input class="num" type="button" value="0">
+                            <span class="remove delete"><i class="fas fa-backspace"></i></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal" id="modal1">
+            <div class="modal-content">
+
+
+                <div class="card-body">
+
+                    <div class="title">
+
+                        <button class="goback" id="btnback">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+
+                        <h2 class="login2"> ओटीपी जाँच </h2>
+                    </div>
+
+                    <div class="label2">
+                        <h1> <span class="phone"></span> पर भेजा गया सत्यापन कोड दर्ज करें </h1>
+                    </div>
+
+
+                    <div class="otp-output d-flex">
+                        <input type="number" maxlength="6" class="inputotp" id="otp_receive" readonly/>
+                    </div>
+
+
+                    <div id="message2" class="error1 hidden"> अमान्य ओटीपी </div>
+
+
+                    <button class="verifyotp" id="btncheck">
+                        <span> जाँच करें </span> <i class="verifyicon fas fa-arrow-right"></i>
+                    </button>
+
+
+                    <button class="resend text-muted text-center" id="btnresend" onclick="resendotp()">
+							कोड नहीं मिला ?
+                        <span class="btn-resend"> पुन: भेजें </span>
+                    </button>
+
+                    <div class="keyboard virtual-keyboard-2">
+                        <input class="num" type="button" value="1">
+                        <input class="num" type="button" value="2">
+                        <input class="num" type="button" value="3">
+                        <input class="num" type="button" value="4">
+                        <input class="num" type="button" value="5">
+                        <input class="num" type="button" value="6">
+                        <input class="num" type="button" value="7">
+                        <input class="num" type="button" value="8">
+                        <input class="num" type="button" value="9">
+                        <span class="num-n num"></span>
+                        <input class="num" type="button" value="0">
+                        <span class="remove delete"><i class="fas fa-backspace"></i></span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    <div class="modalauto" id="automodalid">
+        <div class="autocontent">
+
+            <div class="wtext">
+
+                <wltext1 id="autonum_show"></wltext1> 
+                <wltext> से लॉगिन जारी रखें </wltext><br>
+
+            </div>
+
+            <div class="btn2">
+                    <button class="c1btn" onclick="toggleauto()">
+							नहीं
+                    </button>
+
+                    <button class="c2btn" onclick="autologin()">
+							ठीक है
+                    </button>
+
+                </div>
+        </div>
+    </div>
+
+
+
+    </main>
+
+    <script src="{% static 'login/js/app.js' %}"></script>
+    <script src="{% static 'login/js/login.js' %}"></script>
+
+    <script type="text/javascript">
+
+        var overlay = document.getElementById("overlay");
+        window.addEventListener('load', function(){
+            overlay.style.visibility = 'hidden';
+        })
+
+    </script>
+
+</body>
+
+</html>
